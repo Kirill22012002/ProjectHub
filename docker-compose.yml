@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+
+  postgres-projectcatalog:
+    image: postgres
+    environment:
+      - POSTGRES_USER=projectCatalogUser
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ProjectCatalogDb
+    ports:
+      - "5433:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=projecthub@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=1234567890
+    ports:
+      - "5051:80"

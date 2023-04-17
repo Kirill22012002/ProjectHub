@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "tR1V5DHxZUJPaLnUuBkbnZQRNIl6OtRzVF/fS53+kfc=",
+  "Source": "ProjectHub.Catalog.ProjectCatalogService",
+  "BasePath": "_content/ProjectHub.Catalog.ProjectCatalogService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

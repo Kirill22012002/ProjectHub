@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProjectHub.Catalog.ProjectCatalogService.props" />
+</Project>
