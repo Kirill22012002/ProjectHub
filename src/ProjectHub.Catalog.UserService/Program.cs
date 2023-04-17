@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using ProjectHub.Catalog.UserService;
 using ProjectHub.Catalog.UserService.Data;
-using ProjectHub.Catalog.UserService.Models;
+using ProjectHub.Catalog.UserService.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -68,9 +69,23 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(app.Environment.ContentRootPath, "Styles")),
+    RequestPath = "/styles"
+});
+
+app.UseRouting();
+
 app.UseIdentityServer();
 
-// app.UseHttpsRedirection();
+app.UseEndpoints(endpoints =>
+{
+    app.MapDefaultControllerRoute();
+});
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

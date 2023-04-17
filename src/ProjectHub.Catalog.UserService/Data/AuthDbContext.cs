@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ProjectHub.Catalog.UserService.Models;
+using ProjectHub.Catalog.UserService.Data.Models;
 
 namespace ProjectHub.Catalog.UserService.Data;
 
