@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProjectHub.Catalog.UserService.Models;
+using ProjectHub.Catalog.UserService.Data.Models;
 
 namespace ProjectHub.Catalog.UserService.Data;
 
