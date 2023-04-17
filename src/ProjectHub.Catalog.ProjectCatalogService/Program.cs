@@ -1,11 +1,13 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ProjectHub.Catalog.ProjectCatalogService;
 using ProjectHub.Catalog.ProjectCatalogService.Data;
 using ProjectHub.Catalog.ProjectCatalogService.Repositories.Implementations;
 using ProjectHub.Catalog.ProjectCatalogService.Repositories.Interfaces;
 using ProjectHub.Catalog.ProjectCatalogService.Services.Implementations;
 using ProjectHub.Catalog.ProjectCatalogService.Services.Interfaces;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(config =>
+{
+    config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer("Bearer", options =>
+    {
+        
+    });
 
 builder.Services.AddDbContext<ProjectCatalogDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DockerLocalConnString")));
@@ -42,6 +54,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

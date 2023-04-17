@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjectHub.Catalog.ProjectCatalogService.Repositories.Interfaces;
 using ProjectHub.Catalog.ProjectCatalogService.Services.Interfaces;
@@ -18,6 +19,7 @@ public class ProjectController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateProject([FromBody]NewProjectViewModel projectVm)
     {
         await _projectService.CreateProjectAsync(projectVm);
