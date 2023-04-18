@@ -41,7 +41,7 @@ public class AuthController : Controller
             return View(loginVm);
         }
 
-        var user = await _userManager.FindByNameAsync(loginVm.Username);
+        var user = await _userManager.FindByEmailAsync(loginVm.Email);
         if (user == null)
         {
             ModelState.AddModelError(string.Empty, "User not found");
@@ -83,6 +83,7 @@ public class AuthController : Controller
 
         var user = new AppUser
         {
+            Email = registerVm.Email,
             UserName = registerVm.Username
         };
 
