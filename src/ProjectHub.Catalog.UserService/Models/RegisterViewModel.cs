@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace ProjectHub.Catalog.UserService.Models;
 
@@ -6,6 +7,9 @@ public class RegisterViewModel
 {
     [Required]
     public string Username { get; set; }
+    [Required]
+    [DataType(DataType.EmailAddress)]
+    public string Email { get; set; }
     [Required]
     [DataType(DataType.Password)]
     public string Password { get; set; }

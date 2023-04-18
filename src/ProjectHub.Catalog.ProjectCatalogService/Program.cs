@@ -25,7 +25,9 @@ builder.Services.AddAuthentication(config =>
 })
     .AddJwtBearer("Bearer", options =>
     {
-        
+        options.Authority = "http://localhost:43056/";
+        options.Audience = "WebAPI";
+        options.RequireHttpsMetadata = false;
     });
 
 builder.Services.AddDbContext<ProjectCatalogDbContext>(options =>
