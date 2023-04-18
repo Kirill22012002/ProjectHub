@@ -9,7 +9,7 @@ namespace ProjectHub.Catalog.UserService
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-                new ApiScope("WebAPI", "Web API")
+                new ApiScope("WebAPI", "WebAPI")
             };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
@@ -22,7 +22,7 @@ namespace ProjectHub.Catalog.UserService
         public static IEnumerable<ApiResource> ApiResources =>
             new List<ApiResource>
             {
-                new ApiResource("WebAPI", "Web API", new[]
+                new ApiResource("WebAPI", "WebAPI", new[]
                     { JwtClaimTypes.Name })
                 {
                     Scopes = { "WebAPI" }
@@ -34,30 +34,14 @@ namespace ProjectHub.Catalog.UserService
             {
                 new Client
                 {
-                    ClientId = "web-api",
-                    ClientName = "Web",
-                    AllowedGrantTypes = GrantTypes.Code,
-                    RequireClientSecret = false,
-                    RequirePkce = true,
-                    RedirectUris =
+                    ClientId = "webapi-client",
+                    ClientName = "WebAPI Client",
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientSecrets =
                     {
-                        "http:// .../sidnin-odic"
+                        new Secret("secret".Sha256())
                     },
-                    AllowedCorsOrigins =
-                    {
-                        "http:// ..."
-                    },
-                    PostLogoutRedirectUris =
-                    {
-                        "http:/ .../signout-oidc"
-                    },
-                    AllowedScopes =
-                    {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile,
-                        "WebAPI"
-                    },
-                    AllowAccessTokensViaBrowser = true
+                    AllowedScopes = { "WebAPI" }
                 }
             };
     }

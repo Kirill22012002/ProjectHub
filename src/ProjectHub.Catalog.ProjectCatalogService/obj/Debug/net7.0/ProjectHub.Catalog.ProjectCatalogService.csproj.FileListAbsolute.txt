@@ -49,3 +49,5 @@ C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogSe
 C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogService\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogService\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogService\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogService\bin\Debug\net7.0\IdentityModel.dll
+C:\Users\perep\source\ProjectHub.Catalog\src\ProjectHub.Catalog.ProjectCatalogService\bin\Debug\net7.0\Newtonsoft.Json.dll

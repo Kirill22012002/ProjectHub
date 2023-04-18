@@ -20,13 +20,12 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 });
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
-{
-    config.Password.RequiredLength = 4;
-    config.Password.RequireDigit = false;
-    config.Password.RequireNonAlphanumeric = false;
-    config.Password.RequireUppercase = false;
-    
-})
+    {
+        config.Password.RequiredLength = 4;
+        config.Password.RequireDigit = false;
+        config.Password.RequireNonAlphanumeric = false;
+        config.Password.RequireUppercase = false;
+    })
     .AddEntityFrameworkStores<AuthDbContext>()
     .AddDefaultTokenProviders();
 
@@ -80,10 +79,7 @@ app.UseRouting();
 
 app.UseIdentityServer();
 
-app.UseEndpoints(endpoints =>
-{
-    app.MapDefaultControllerRoute();
-});
+app.UseEndpoints(endpoints => { app.MapDefaultControllerRoute(); });
 
 app.UseHttpsRedirection();
 
